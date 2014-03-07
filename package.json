@@ -1,0 +1,39 @@
+{
+  "name": "resrcify",
+  "version": "0.0.0",
+  "description": "resrcify ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bclinkinbeard/resrcify.git"
+  },
+  "keywords": [
+    "browser",
+    "browserify-transform",
+    "server",
+    "templates",
+    "assets",
+    "atomify"
+  ],
+  "author": "Ben Clinkinbeard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bclinkinbeard/resrcify/issues"
+  },
+  "homepage": "https://github.com/bclinkinbeard/resrcify",
+  "devDependencies": {
+    "tap": "^0.4.8",
+    "browserify": "^3.32.0"
+  },
+  "peerDependencies": {
+    "browserify": "^3.32.0"
+  },
+  "dependencies": {
+    "string-to-js": "0.0.1",
+    "through": "^2.3.4",
+    "mkdirp": "^0.3.5"
+  }
+}
