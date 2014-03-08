@@ -26,10 +26,10 @@
   "homepage": "https://github.com/bclinkinbeard/resrcify",
   "devDependencies": {
     "tap": "^0.4.8",
-    "browserify": "^3.32.0"
+    "browserify": "^3.17.0"
   },
   "peerDependencies": {
-    "browserify": "^3.32.0"
+    "browserify": "^3.17.0"
   },
   "dependencies": {
     "string-to-js": "0.0.1",
