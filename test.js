@@ -7,25 +7,51 @@ var test = require('tap').test
     return fs.readFileSync(name, 'utf8')
   }
 
-function runFixture (name, t) {
-  var jsFix = './fixtures/' + name + '.js'
-    , htmlFix = read('./fixtures/' + name + '-output.html')
-    , b = browserify();
+test('basic img tag with src', function (t) {
+  t.plan(1)
+  runFixture('basic', t)
+})
 
-  b.add(jsFix);
-  b.transform(resrcify);
+test('multiple refs to different assets', function (t) {
+  t.plan(1)
+  runFixture('multiple-refs', t)
+})
+
+test('multiple refs to the same asset', function (t) {
+  t.plan(1)
+  runFixture('duplicate-refs', t)
+})
+
+test('opts.prefix', function (t) {
+  t.plan(1)
+  runFixture('multiple-refs', t, 'prefix', {prefix: 'images/'})
+})
+
+test('opts.dest', function (t) {
+  t.plan(2)
+  runFixture('basic', t, null, {dest: 'fixtures/assets/generated'})
+  t.ok(fs.existsSync('./fixtures/assets/generated/390025aef74c5829.jpg'), 'file exists')
+})
+
+function runFixture (dir, t, output, opts) {
+  output = output || 'output'
+  var jsFix = './fixtures/' + dir + '/index.js'
+    , htmlFix = read('./fixtures/' + dir + '/' + output + '.html')
+    , b = browserify()
+
+  b.add(jsFix)
+  if (opts) {
+    b.transform(opts, resrcify)
+  } else {
+    b.transform(resrcify)
+  }
 
   b.bundle(function (err, src) {
-    if (err) t.fail(err);
-    vm.runInNewContext(src, { console: { log: log } });
-  });
+    if (err) t.fail(err)
+    vm.runInNewContext(src, { console: { log: log } })
+  })
 
   function log (msg) {
-    t.equal(msg, htmlFix);
+    t.equal(msg, htmlFix)
   }
 }
-
-test('dupes', function (t) {
-  t.plan(1);
-  runFixture('duplicate-refs', t);
-});
