@@ -22,6 +22,11 @@ test('multiple refs to the same asset', function (t) {
   runFixture('duplicate-refs', t)
 })
 
+test('video and audio tags', function (t) {
+  t.plan(1)
+  runFixture('multiple-tags', t)
+})
+
 test('opts.prefix', function (t) {
   t.plan(1)
   runFixture('multiple-refs', t, 'prefix', {prefix: 'images/'})

@@ -7,7 +7,7 @@ var through = require('through')
   , url = require('url')
 
 var types = ['html']
-  , tag = /\<img[\S\s]*?src\=[\"\'](.*?)[\"\'][\S\s]*?\>/g
+  , tag = /\<[img|video|audio][\S\s?!\<]*?src\=[\"\'](.*?)[\"\'][\S\s]*?\>/g
   , res
 
 function resrcify (file, opts) {
