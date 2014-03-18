@@ -24,7 +24,11 @@ function resrcify (file, opts) {
         buffer = buffer.replace(res[1], replace(res[1], file, opts))
       }
 
-      this.queue(str2js(buffer))
+      if (buffer.indexOf('module.exports') === 0) {
+        this.queue(buffer); // prevent "double" transforms
+      } else {
+        this.queue(str2js(buffer));
+      }
       this.queue(null)
     })
 
