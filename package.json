@@ -28,9 +28,6 @@
     "tap": "^0.4.8",
     "browserify": "> 3.17.0"
   },
-  "peerDependencies": {
-    "browserify": "> 3.17.0"
-  },
   "dependencies": {
     "string-to-js": "0.0.1",
     "through": "^2.3.4",
