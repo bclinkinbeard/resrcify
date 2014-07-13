@@ -21,7 +21,7 @@ function resrcify (file, opts) {
     },
     function () {
       while ((res = tag.exec(buffer)) !== null) {
-        buffer = buffer.replace(res[1], replace(res[1], file, opts))
+        buffer = buffer.replace(res[1], resrc(res[1], file, opts))
       }
 
       if (buffer.indexOf('module.exports') === 0) {
@@ -34,7 +34,7 @@ function resrcify (file, opts) {
 
 }
 
-function replace (asset, file, opts) {
+function resrc (asset, file, opts) {
   opts = opts || {}
 
   var destDir = opts.dest || ''
@@ -79,6 +79,8 @@ function replace (asset, file, opts) {
   processed[srcFile] = path.join(prefix, name)
   return processed[srcFile]
 }
+
+exports.resrc = resrc
 
 function isValidFile (file, opts) {
   var validTypes = types
