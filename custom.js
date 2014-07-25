@@ -76,7 +76,8 @@ function resrc (asset, file, opts) {
   mkdirp.sync(destDir)
   fs.writeFileSync(destFile, contents)
 
-  processed[srcFile] = path.join(prefix, name)
+  // ensure forward slashes on win
+  processed[srcFile] = path.join(prefix, name).split('\\').join('/')
   return processed[srcFile]
 }
 
