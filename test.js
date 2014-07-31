@@ -41,14 +41,14 @@ test('opts.dest', function (t) {
 
 test('opts.retainName', function (t) {
   t.plan(2)
-  runFixture('retain-name', t, null, {retainName: true, dest: 'fixtures/assets/generated'}, function() {
+  runFixture('basic', t, 'retain', {retainName: true, dest: 'fixtures/assets/generated'}, function() {
     t.ok(fs.existsSync('./fixtures/assets/generated/atomify-390025aef74c5829.jpg'), 'file exists')
   })
 })
 
 test('opts.retainName with prefix', function (t) {
   t.plan(2)
-  runFixture('retain-name', t, 'prefix', {retainName: true, prefix: 'images/', dest: 'fixtures/assets/generated'}, function() {
+  runFixture('basic', t, 'prefix', {retainName: true, prefix: 'images/', dest: 'fixtures/assets/generated'}, function() {
     t.ok(fs.existsSync('./fixtures/assets/generated/atomify-390025aef74c5829.jpg'), 'file exists')
   })
 })
