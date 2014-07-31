@@ -39,6 +39,7 @@ function resrc (asset, file, opts) {
 
   var destDir = opts.dest || ''
     , prefix = opts.prefix || ''
+    , retainName = !!opts.retainName
     , onError = opts.onError || defaultError
     , processed = {}
     , u = url.parse(asset)
@@ -70,7 +71,9 @@ function resrc (asset, file, opts) {
     .digest('hex')
     .substr(0, 16)
 
-  var name = hash + path.extname(asset)
+  var ext = path.extname(asset)
+    , origName = path.basename(asset, ext)
+    , name = (retainName ? origName + '-' : '') + hash + ext
     , destFile = path.join(destDir, name)
 
   mkdirp.sync(destDir)
