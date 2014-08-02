@@ -35,6 +35,13 @@ test('opts.prefix', function (t) {
 test('opts.dest', function (t) {
   t.plan(2)
   runFixture('basic', t, null, {dest: 'fixtures/assets/generated'}, function() {
+    t.ok(fs.existsSync('./fixtures/assets/generated/atomify-390025aef74c5829.jpg'), 'file exists')
+  })
+})
+
+test('opts.retainName', function (t) {
+  t.plan(2)
+  runFixture('basic', t, 'retainName', {dest: 'fixtures/assets/generated', retainName: false}, function() {
     t.ok(fs.existsSync('./fixtures/assets/generated/390025aef74c5829.jpg'), 'file exists')
   })
 })
