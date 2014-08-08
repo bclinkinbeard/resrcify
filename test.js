@@ -46,6 +46,11 @@ test('opts.retainName', function (t) {
   })
 })
 
+test('use other attributes which ends in src', function (t) {
+  t.plan(1)
+  runFixture('other-attr', t)
+})
+
 function runFixture (dir, t, output, opts, cb) {
   output = output || 'output'
   var jsFix = './fixtures/' + dir + '/index.js'
