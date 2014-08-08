@@ -8,11 +8,14 @@ var through = require('through')
 
 var types = ['html']
   , tag = /\<[img|video|audio][\S\s?!\<]*?src\=[\"\'](.*?)[\"\'][\S\s]*?\>/g
+  , processed
   , res
 
 function resrcify (file, opts) {
 
   if (!isValidFile(file, opts)) return through()
+
+  processed = {}
 
   var buffer = ''
 
@@ -41,7 +44,6 @@ function resrc (asset, file, opts) {
     , prefix = opts.prefix || ''
     , retainName = typeof opts.retainName !== 'undefined' ? opts.retainName : true
     , onError = opts.onError || defaultError
-    , processed = {}
     , u = url.parse(asset)
 
   // ignore abs urls
