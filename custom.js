@@ -51,7 +51,7 @@ function resrc (asset, file, opts) {
     return asset
   }
 
-  asset = u.pathname
+  asset = decodeURI(u.pathname)
 
   var baseDir = path.dirname(file)
     , srcFile = path.join(baseDir, asset)
