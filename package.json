@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bclinkinbeard/resrcify.git"
+    "url": "git://github.com/borisirota/resrcify.git"
   },
   "keywords": [
     "browser",
@@ -21,9 +21,9 @@
   "author": "Ben Clinkinbeard",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bclinkinbeard/resrcify/issues"
+    "url": "https://github.com/borisirota/resrcify/issues"
   },
-  "homepage": "https://github.com/bclinkinbeard/resrcify",
+  "homepage": "https://github.com/borisirota/resrcify",
   "devDependencies": {
     "tap": "^0.4.8",
     "browserify": "> 3.17.0"
