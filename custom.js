@@ -6,8 +6,8 @@ var through = require('through')
   , path = require('path')
   , url = require('url')
 
-var types = ['html']
-  , tag = /\<[img|video|audio][\S\s?!\<]*?[\ \'\"]src\=[\"\'](.*?)[\"\'][\S\s]*?\>/g
+var types = ['html', 'jade']
+  , tag = /\<[img|video|audio][\S\s?!\<]*?[\ \'\"]src\=\\?[\"\'](.*?)\\?[\"\'][\S\s]*?\>/g
   , processed = {}
   , res
 
